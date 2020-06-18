@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
 # 顧客用トップページ
   	root to: 'customers/home#top'
 
@@ -60,5 +61,6 @@ Rails.application.routes.draw do
   		resources :order_details, only: [:update]
   	end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 
 end
