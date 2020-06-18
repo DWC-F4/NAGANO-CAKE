@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 # 顧客用トップページ
   	root to: 'customers/home#top'
 
-# 顧客用トップページ
+# 管理者用トップページ
   	get 'admins' => 'admins/home#top'
 
 # 管理者用認証機能
