@@ -38,9 +38,15 @@
     </header>
 
     <main>
-      <div class="container">
-        <p id="notice"><%= notice %></p>
-      </div>
+      <% if flash[:notice] %>
+        <div class="alert alert-success text-center" role="alert">
+          <%= flash[:notice] %>
+        </div>
+      <% elsif flash[:alert] %>
+        <div class="alert alert-warning text-center" role="alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
 
       <div class="container">
         <div class="row">
