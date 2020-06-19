@@ -1,1 +1,22 @@
-<h2>配送先編集ページ</h2>
+<h3>配送先編集</h3>
+
+  	<!-- 編集フォーム -->
+  	<%= form_for(@delivery_info, url: customers_delivery_info_path) do |f| %>
+    	<table class="table table-bordered">
+      		<tr>
+	   	 		<td>郵便番号(ハイフンなし)</td>
+	    		<td><%= f.text_field :postal_code, autofocus: true %></td>
+	  		</tr>
+	  		<tr>
+	    		<td>住所</td>
+	    		<td><%= f.text_field :address, autofocus: true, style: "width: 80%;" %></td>
+	  		</tr>
+	  		<tr>
+	    		<td>宛名</td>
+	    		<td><%= f.text_field :address_name, autofocus: true %></td>
+	  		</tr>
+	  	</table>
+	  	<div class="col-md-2 col-md-offset-5">
+    		<%= f.submit "編集する", class: 'btn btn-primary btn-md' %>
+    	</div>
+  	<% end %>
