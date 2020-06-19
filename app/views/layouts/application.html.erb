@@ -15,7 +15,7 @@
       <div class="container">
         <nav>
           <ul class="left nav navbar-nav navbar-left">
-            <%= link_to "LOGO", root_path %>
+            <%= link_to "NAGANO-CAKE", root_path, class: 'logo' %>
           </ul>
         </nav>
 
@@ -37,16 +37,17 @@
       </div>
     </header>
 
-    <div class="container">
-      <p id="notice"><%= notice %></p>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <%= yield %>
+    <main>
+      <div class="container">
+        <p id="notice"><%= notice %></p>
       </div>
-    </div>
 
+      <div class="container">
+        <div class="row">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
 
   </body>
 </html>
