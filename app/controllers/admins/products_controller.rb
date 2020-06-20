@@ -1,5 +1,7 @@
 class Admins::ProductsController < ApplicationController
-	 before_action :set_product, only: %i[show edit update]
+
+	before_action :set_product, only: %i[show edit update]
+	layout "admin"
 
 	def index
 		@products = Product.all
