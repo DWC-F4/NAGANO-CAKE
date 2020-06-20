@@ -1,0 +1,30 @@
+<h1>商品新規登録</h1>
+
+<div>
+	<%= form_for(@product, url:admins_products_path) do |f| %>
+	<div>
+		<%= f.attachment_field :image %>
+	</div>
+	<div class="field row">
+		<%= f.label :商品名 %>
+		<%= f.text_field :name %>
+	</div>
+	<div class="field row">
+		<%= f.label :商品説明 %>
+		<%= f.text_area :introduction %>
+	</div>
+	<div class="field row">
+		<%= f.collection_select(:genre_id, @genres, :id, :name)%>
+	</div>
+	<div class="field row">
+		<%= f.label :税抜価格 %>
+		<%= f.text_field :price %>円
+	</div>
+	<div class="field row">
+		<%= f.select 'sales_status', options_for_select([
+			["-- 選択してください --",""],["販売中", false],["売切れ", true]
+		]) %>
+		<%= submit_tag "新規登録" %>
+	</div>
+<% end %>
+</div>
