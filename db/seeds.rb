@@ -18,15 +18,6 @@
     	password_confirmation: "password",
     	)
 
-    5.times do |n|
-      Product.create!(
-        name: "test#{n+1}",
-        introduction: "製品の紹介文です",
-        price: (n+1)*100,
-        genre_id: n+1,
-        )
-    end
-
     Genre.create!(
       name: "ケーキ"
       )
@@ -42,3 +33,13 @@
     Genre.create!(
       name: "チョコレート"
       )
+
+    5.times do |n|
+      Product.create!(
+        name: "test#{n+1}",
+        introduction: "製品の紹介文です",
+        price: (n+1)*100,
+        genre_id: n+1,
+        )
+    end
+
