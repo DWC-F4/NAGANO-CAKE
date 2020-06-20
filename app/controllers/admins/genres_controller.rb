@@ -25,9 +25,10 @@ class Admins::GenresController < ApplicationController
 	  @genre = Genre.find(params[:id])
 	  if @genre.update(genre_params)
 	  	redirect_to admins_genres_path
-	  else 
+	  else
 	  	render "edit"
 	  end
+
 	end
 
   private
