@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
 
+
 # 顧客用トップページ
   	root to: 'customers/home#top'
 
-# 顧客用トップページ
+# 管理者用トップページ
   	get 'admins' => 'admins/home#top'
 
 # 管理者用認証機能
@@ -56,11 +57,12 @@ Rails.application.routes.draw do
 
   		resources :genres, only: [:index, :edit, :create, :update]
 
-  		resources :order, only: [:index, :show, :update]
+  		resources :orders, only: [:index, :show, :update]
 
   		resources :order_details, only: [:update]
   	end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 
 
 end

@@ -13,3 +13,47 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'font-awesome';
+
+
+
+.name {
+	margin-top: 15px;
+}
+
+.sign-up {
+	margin-bottom: 30px;
+	margin-top: 10px;
+}
+
+.sign-up-form {
+	margin: 10px 0;
+}
+
+.navbar {
+	height: 80px;
+	background-color: #FFFFFF;
+}
+
+.navbar-right {
+	font-size: 15px;
+	padding-top: 17px;
+	color: black;
+}
+
+main {
+	margin-top: 100px;
+}
+
+.navbar-left {
+	font-size: 25px;
+	margin-top: 20px;
+
+}
+
+.logo {
+	color: black;
+}
+

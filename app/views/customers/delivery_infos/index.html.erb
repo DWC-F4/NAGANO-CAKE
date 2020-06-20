@@ -1,1 +1,49 @@
-<h2>配送先一覧ページ</h2>
+<h5>配送先登録/一覧</h5>
+    <%= form_for(@delivery_info, url: customers_delivery_infos_path) do |f| %>
+        <table class="table table-bordered">
+	    	<tr>
+		    	<th>郵便番号(ハイフンなし)</th>
+		    	<td><%= f.text_field :postal_code %></td>
+	      	</tr>
+	      	<tr>
+		    	<th>住所</th>
+		    	<td><%= f.text_field :address, style: "width: 80%;" %></td>
+	      	</tr>
+	      	<tr>
+	  	    	<th>宛名</th>
+	  	    	<td><%= f.text_field :address_name %></td>
+	      	</tr>
+	    </table>
+	    <%= f.submit "登録する", class: 'btn btn-primary btn-md' %>
+    <% end %>
+
+  <!-- 配送先一覧/編集/削除/ -->
+<table class="table table-bordered" style="margin-top: 20px;">
+  	<thead>
+    	<tr>
+	     	<th>郵便番号</th>
+			<th>住所</th>
+			<th>宛名</th>
+			<th></th>
+	  	</tr>
+    </thead>
+	<% @delivery_infos.each do |delivery_info| %>
+	  	<tbody>
+	    	<tr>
+			  	<td>
+					<%= delivery_info.postal_code %>
+			  	</td>
+			  	<td>
+					<%= delivery_info.address %>
+			  	</td>
+			  	<td>
+					<%= delivery_info.address_name %>
+			  	</td>
+			  	<td>
+					<%= link_to "編集する", edit_customers_delivery_info_path(delivery_info), class:"btn btn-primary btn-md" %>
+					<%= link_to "削除する", customers_delivery_info_path(delivery_info), class:"btn btn-danger btn-md", method: :delete %>
+		  		</td>
+	    	</tr>
+	  	</tbody>
+	<% end %>
+</table>

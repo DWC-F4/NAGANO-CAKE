@@ -10,6 +10,50 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <nav>
+          <ul class="left nav navbar-nav navbar-left">
+            <%= link_to "NAGANO-CAKE", root_path, class: 'logo' %>
+          </ul>
+        </nav>
+
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li class="name">ようこそ、<%= current_user.first_name %>さん!</li>
+              <li><%= link_to 'マイページ', customers_user_path(current_user.id) %></li>
+              <li><%= link_to '商品一覧', customers_products_path %></li>
+              <li><%= link_to 'カート', customers_cart_items_path %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to '商品一覧', customers_products_path %></li>
+              <li><%= link_to '新規登録', new_user_registration_path %></li>
+              <li><%= link_to 'ログイン', new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <% if flash[:notice] %>
+        <div class="alert alert-success text-center" role="alert">
+          <%= flash[:notice] %>
+        </div>
+      <% elsif flash[:alert] %>
+        <div class="alert alert-warning text-center" role="alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
+      <div class="container">
+        <div class="row">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+
   </body>
 </html>
