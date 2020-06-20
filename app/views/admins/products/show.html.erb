@@ -1,0 +1,18 @@
+<h1>商品詳細</h1>
+
+<%= attachment_image_tag @product, :image_id, :fill, 50, 50, format: 'jpeg',fallback: "no_image.jpg",size:'50x50' %>
+
+<h4>商品名		<%= @product.name %></h4>
+<h4>商品説名		<%= @product.introduction %></h4>
+<h4>ジャンル		<%= @product.genre.name %></h4>
+
+ <h4>税込価格 (税抜価格) 	<%= @product.price*1.10.floor %> <%= "(#{@product.price})" %>  円</h4>
+<h4>販売ステータス
+	<% if @product.sales_status ==false %>
+		販売中
+	<% else %>
+		販売停止中
+	<% end %>
+</h4>
+
+<%= link_to "編集する",edit_admins_product_path(@product), class:" btn btn-default" %>

@@ -17,3 +17,28 @@
     	password: "password",
     	password_confirmation: "password",
     	)
+
+    5.times do |n|
+      Product.create!(
+        name: "test#{n+1}",
+        introduction: "製品の紹介文です",
+        price: (n+1)*100,
+        genre_id: n+1,
+        )
+    end
+
+    Genre.create!(
+      name: "ケーキ"
+      )
+    Genre.create!(
+      name: "プリン"
+      )
+    Genre.create!(
+      name: "焼き菓子"
+      )
+    Genre.create!(
+      name: "キャンディ"
+      )
+    Genre.create!(
+      name: "チョコレート"
+      )
