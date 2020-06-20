@@ -1,0 +1,31 @@
+<h1>商品編集</h1>
+
+<div>
+	<%= form_for [:admins, @product] do |f| %>
+	<div>
+		<%= f.label :image%>
+		<%= f.attachment_field :image %>
+	</div>
+	<div class="field row">
+		<%= f.label :商品名 %>
+		<%= f.text_field :name %>
+	</div>
+	<div class="field row">
+		<%= f.label :商品説明 %>
+		<%= f.text_area :introduction %>
+	</div>
+	<div class="field row">
+		<%= f.collection_select(:genre_id, @genres, :id, :name)%>
+	</div>
+	<div class="field row">
+		<%= f.label :税抜価格 %>
+		<%= f.text_field :price %>円
+	</div>
+	<div class="field row">
+		<%= f.select 'sales_status', options_for_select([
+			["-- 選択してください --",""],["販売中", false],["売切れ", true]
+		]) %>
+		<%= submit_tag "変更を保存" %>
+	</div>
+<% end %>
+</div>
