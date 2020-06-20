@@ -15,7 +15,7 @@ class Customers::UsersController < ApplicationController
 	  @user = User.find(params[:id])
 	  if @user.update(user_params)
 	  	redirect_to customers_user_path(current_user), notice: "登録情報を変更しました。"
-	  else 
+	  else
 	  	render "edit"
 	  end
 	end
@@ -27,5 +27,4 @@ class Customers::UsersController < ApplicationController
   def user_params
   	params.require(:user).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :postal_code, :address, :phone_number)
   end
-
 end
