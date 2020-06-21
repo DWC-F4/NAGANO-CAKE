@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_many :delivery_infos
 
+  def active_for_authentication?
+    super && (self.user_status == false)
+  end
+
 end

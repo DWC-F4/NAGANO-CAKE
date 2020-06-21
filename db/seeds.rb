@@ -7,7 +7,6 @@
       postal_code: "123-5678",
       address: "東京都渋谷区神南1丁目19-11",
       phone_number: "050-1111-1111",
-      user_status: "FALESE",
       password: "password",
       password_confirmation: "password",
     )
