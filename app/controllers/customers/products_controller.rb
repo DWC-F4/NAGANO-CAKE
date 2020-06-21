@@ -1,7 +1,7 @@
 class Customers::ProductsController < ApplicationController
 
 	def index
-		@product = Product.find(params[:id])
+		@product = Product.find
 		@products = Product.all
 		@genres = Genre.all
 	end
