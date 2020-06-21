@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :delivery_infos
+  has_many :orders
 
   def active_for_authentication?
     super && (self.user_status == false)
