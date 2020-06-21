@@ -1,0 +1,18 @@
+<div style="text-align:center;">
+
+<!-- ユーザーがログインしていて且つログインユーザーであれば退会ボタンを表示 -->
+	<% if user_signed_in? && @user.id == current_user.id %>
+
+	<%= form_for(@user, url:customers_user_path) do |f| %>
+  		<h1 class="glyphicon glyphicon-warning-sign" aria-hidden="true"></h1>
+  		<h2>本当に退会しますか？</h2>
+  		<br>
+  			 <p>退会すると、会員情報や</p>
+  			 <p>これまでの購入履歴が閲覧できなくなります。</p>
+  			 <p>退会する場合は、<strong  class="text-danger">「退会する」</strong>をクリックしてください。</p>
+  		<br>
+  		<%= link_to "退会しない",customers_user_path(@user),class: "btn btn-primary" %>&nbsp;
+  		<%= link_to "退会する",leave_customers_user_path(current_user), method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+  	<% end %>
+	<% end %>
+</div>
