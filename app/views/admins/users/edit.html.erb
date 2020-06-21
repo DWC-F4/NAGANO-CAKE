@@ -1,5 +1,5 @@
 <h2><%= @user.first_name %><%= @user.last_name %>さんの会員情報編集</h2>
-    <%= form_for(@user, url: admins_users_path) do |f| %>
+    <%= form_for(@user, url: admins_user_path) do |f| %>
 <table>
 	<tr>
 		<th>会員ID</th>
@@ -31,9 +31,9 @@
 	</tr>
   　<tr>
   	    <th>会員ステータス</th>
-  	    <td><%= f.radio_button :user_status, :true %>有効
-  		    <%= f.radio_button :user_status, :false %>退会済み</td>
+  	    <td><%= f.radio_button :user_status, :false %>有効
+  		    <%= f.radio_button :user_status, :true %>退会済み</td>
     </tr>
 </table>
-<%= link_to "変更を保存する", admins_user_path(@user), class: "btn-sm btn-primary" %>
+<%= f.submit "変更を保存する", class: "btn-sm btn-primary" %>
 <% end %>

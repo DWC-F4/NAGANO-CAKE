@@ -2,7 +2,13 @@
 <table>
 	<tr>
 		<th>顧客ID</th>
-		<td><%= @user.id %></td>
+		<td><%= @user.id %>
+			<% if @user.user_status ==false %>
+			有効会員
+			<% else %>
+			退会済
+			<% end %>
+		</td>
 	</tr>
 	<tr>
 		<th>氏名</th>

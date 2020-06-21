@@ -13,8 +13,10 @@ class Admins::UsersController < ApplicationController
 	end
 
 	def update
-	    if @user.update(user_params)
-	       redirecet_to admins_user_path
+		@user = User.find(params[:id])
+	    if @user.update!(user_params)
+	       flash[:notice] = "会員情報を更新しました。"
+	       redirect_to admins_user_path(@user.id)
 	    else
 	       render "edit"
 	    end
@@ -24,4 +26,5 @@ class Admins::UsersController < ApplicationController
 	  def user_params
 	  	params.require(:user).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code, :address, :phone_number, :email, :user_status)
 	  end
+
 end
