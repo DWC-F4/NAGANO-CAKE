@@ -2,6 +2,10 @@
 <%= render 'genre_index' %>
 
 <div class="col-md-9">
+    <p>
+        <h4><%= @title %>一覧</h4>
+        <h5>(全<%= @products.count %>件)</h5>
+    </p>
     <div class="flex_test-box">
        	<% @products.each do |product| %>
             <div class="col-md-3">
