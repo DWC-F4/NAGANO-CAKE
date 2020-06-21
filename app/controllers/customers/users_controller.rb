@@ -9,6 +9,7 @@ class Customers::UsersController < ApplicationController
 	end
 
 	def unsubscribe
+	  @user = current_user
 	end
 
 	def update
@@ -21,6 +22,12 @@ class Customers::UsersController < ApplicationController
 	end
 
 	def leave
+	  @user = User.find(params[:id])
+      @user.update(user_status: true)
+      #ログアウトさせる
+      reset_session
+      flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+      redirect_to root_path
 	end
 
   private

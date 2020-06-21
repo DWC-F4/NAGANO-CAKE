@@ -1,25 +1,11 @@
-<div class="container">
-  <div class="row">
-  	<div class="col-md-offset-3 col-md-6">
+<h2>ジャンル編集</h2>
 
-  		<h2>ジャンル編集</h2>
-
-  		<div class="form-inline">
-         <div class="form-group">
-          <%= form_for(@genre, url: admins_genre_path) do |f| %>
-            <%= f.label :ジャンル名 %>
-            <%= f.text_area :name %>
-         </div>
-        <div class="radiobutton">
-          <label><%= f.radio_button :genre_status, :true %>有効</label>
-          <label><%= f.radio_button :genre_status, :false %>無効</label>
-        </div>
-        <div class="action row">
-          <%= f.submit '変更を保存する',class: "btn btn-primary" %>
-        </div>
-       <% end %>
-    </div>
-
-  	</div>
-  </div>
-</div>
+  <span class="form-group">
+    <%= form_for(@genre, url: admins_genre_path) do |f| %>
+    <%= f.label :ジャンル名 %>
+    <%= f.text_area :name %>
+    <label><%= f.radio_button :genre_status, :true %>無効</label>
+    <label><%= f.radio_button :genre_status, :false %>有効</label>
+    <%= f.submit '変更を保存する',class: "btn btn-primary" %>
+    <% end %>
+  </span>

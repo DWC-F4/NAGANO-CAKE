@@ -1,3 +1,20 @@
-<h2>商品詳細</h2>
 
-<%= link_to "カートに入れる", customers_cart_items_path %>
+<%= render 'genre_index' %>
+
+<div class="col-xs-5">
+	<%= attachment_image_tag @product, :image, class: "pull-left profile-img", fallback: "no_image.jpg", size: '450x300' %>
+</div>
+
+<div class="col-xs-4">
+	<h3><%= @product.name %></h3>
+	<p><%= @product.introduction%></p>
+	<h4><%= (@product.price * 1.1).round%>
+	<span>円(税込価格)</span></h4>
+	<% if user_signed_in? %>
+		<%= form_for(@cart_item, url:customers_cart_items_path) do |f| %>
+			<%= f.hidden_field :product_id %>
+			<%= f.submit "カートに入れる", class: 'btn btn-primary col-xs-5' %>
+			<%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10] %>
+		<% end %>
+	<% end %>
+</div>
