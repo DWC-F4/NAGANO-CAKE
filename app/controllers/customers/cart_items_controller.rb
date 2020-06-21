@@ -1,5 +1,8 @@
 class Customers::CartItemsController < ApplicationController
 	def index
+		@products = Product.all
+		# @cart_items = @products.cart_items.id
+
 	end
 
 	def create

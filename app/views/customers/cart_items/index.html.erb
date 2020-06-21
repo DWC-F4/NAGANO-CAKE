@@ -1,0 +1,28 @@
+<h1>ショッピングカート</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>商品名</th>
+			<th>単価(税込)</th>
+			<th>数量</th>
+			<th>小計</th>
+			<th></th>
+		</tr>
+	</thead>
+	<% @products.each do |product| %>
+	<tbody>
+		<tr>
+			<td><%= attachment_image_tag product, :image_id, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" ,size:'40x40' %> <%= product.name %></td>
+			<td><%= product.price %></td>
+			<td><%#= product.cart_items.quantity %></td>
+			<td><%#= product.price * product.cart_items.quantity} %></td>
+			<td><%=link_to "削除する", customers_cart_item_path(product), method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
+		</tr>
+	</tbody>
+	<% end %>
+</table>
+
+<div class="button">
+	<%= link_to "買い物を続ける",customers_products_path %>
+</div>
