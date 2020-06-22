@@ -1,24 +1,22 @@
 <div>
-	<h4>ジャンル検索</h4>
-	<% @genres.each do |genre| %>
-	<%=link_to genre.name, customers_products_path(genre_id: genre.id) %><br>
-	<% end %>
+	<%= render 'customers/products/genre_index', genres: @genres %>
 </div>
 
 
-<div>
+<div class="col text-center">
 	<p>ようこそ、Nagano Cakeへ！</p>
 	<p>このサイトは、ケーキ販売のECサイトになります。</p>
 	<p>会員でない方も商品の閲覧はできますが、</p>
 	<p>購入には会員登録が必要になります。</p>
 </div>
 
-<h1>オススメ商品</h1>
-
 <div>
-	<%= attachment_image_tag @reccomend, :image_id, :fill, 50, 50, format: 'jpeg',fallback: "no_image.jpg",size:'50x50' %><br>
-	<%= link_to @reccomend.name, customers_product_path(@reccomend) %><br>
+	<h2>オススメ商品</h2>
+	<%= attachment_image_tag @reccomend, :image_id, :fill, 100, 100, format: 'jpeg',fallback: "no_image.jpg",size:'100x100' %>
+	<%= link_to @reccomend.name, customers_product_path(@reccomend) %>
 	¥<%= @reccomend.price %>
 </div>
 
-<p><%= link_to "もっと見る", customers_products_path %></p>
+<div class="col text-right">
+	<%= link_to "もっと見る", customers_products_path %>
+</div>
