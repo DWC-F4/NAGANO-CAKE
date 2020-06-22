@@ -1,9 +1,11 @@
 class Customers::OrdersController < ApplicationController
 
 	def index
+		@orders = Order.all
 	end
 
 	def show
+		@orders = Order.all
 	end
 
 	def new
@@ -17,5 +19,5 @@ class Customers::OrdersController < ApplicationController
 
 	def create
 	end
-	
+
 end
