@@ -1,6 +1,8 @@
 class Admins::ProductsController < ApplicationController
 
 	before_action :set_product, only: %i[show edit update]
+	before_action :authenticate_admin!
+
 	layout "admin"
 
 	def index
