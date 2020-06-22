@@ -4,8 +4,10 @@
   	<thead>
   		<tr>
   			<th>購入者</th>
-  			<td><%= @order.user.first_name %>&nbsp;
+  			<td><%= link_to @user.id do %>
+  				<%= @order.user.first_name %>&nbsp;
   				<%= @order.user.last_name %>
+  				<% end %>
   			</td>
   		</tr>
 

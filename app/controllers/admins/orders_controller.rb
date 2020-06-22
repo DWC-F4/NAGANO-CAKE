@@ -7,6 +7,7 @@ class Admins::OrdersController < ApplicationController
 	end
 
 	def show
+	  @user = User.find(params[:id])
 	  @order = Order.find(params[:id])
 	end
 
@@ -23,6 +24,5 @@ class Admins::OrdersController < ApplicationController
 private
   def order_params
   	params.require(:order).permit(:order_status)
-  	params.require(:order_detail).permit(:product_status)
   end
 end
