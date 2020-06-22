@@ -43,6 +43,7 @@
     end
 
     Order.create!(
+      user_id: "1",
       payment: "1",
       address_name: "梅木匠",
       postage: "800",
@@ -53,6 +54,8 @@
       )
 
     OrderDetail.create!(
+      order_id: "1",
+      product_id: "1",
       price: "2000",
       quantity: "2",
       product_status: "1",

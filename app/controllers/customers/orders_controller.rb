@@ -5,7 +5,9 @@ class Customers::OrdersController < ApplicationController
 	end
 
 	def show
-		@orders = Order.all
+	    @order = Order.find(params[:id])
+	    @sum = 0
+			@sum += @order.price + @order.postage
 	end
 
 	def new
