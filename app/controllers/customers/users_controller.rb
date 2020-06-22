@@ -17,6 +17,7 @@ class Customers::UsersController < ApplicationController
 	  if @user.update(user_params)
 	  	redirect_to customers_user_path(current_user), notice: "登録情報を変更しました。"
 	  else
+	  	flash[:alert] = "編集内容をご確認ください。"
 	  	render "edit"
 	  end
 	end
