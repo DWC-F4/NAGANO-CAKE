@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :delivery_infos
   has_many :orders
+  has_many :cart_items
 
   def active_for_authentication?
     super && (self.user_status == false)
