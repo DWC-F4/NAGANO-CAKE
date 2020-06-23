@@ -1,8 +1,8 @@
 <h2>会員一覧</h2>
 <div>
-	<table>
+	<table class="table">
 		<thead>
-			<tr>
+			<tr class="active">
 				<th>会員ID</th>
 				<th>氏名</th>
 				<th>メールアドレス</th>
@@ -13,16 +13,17 @@
 			<% @users.each do |user| %>
 			<tr>
 				<td><%= user.id %></td>
-				<%= link_to admins_users_path(user) do %>
-				<td><%= user.first_name %><%= user.last_name %>
+				<td>
+					<%= link_to admins_user_path(user) do %>
+						<%= user.first_name %><%= user.last_name %>
 					<% end %>
 				</td>
 				<td><%= user.email %></td>
 				<td>
-					<% if user.user_status ==false %>
-					有効
+					<% if user.user_status == false %>
+						有効
 					<% else %>
-					退会済
+						退会済
 					<% end %>
 				</td>
 			</tr>

@@ -1,39 +1,51 @@
 <h2><%= @user.first_name %><%= @user.last_name %>さんの会員詳細</h2>
-<table>
-	<tr>
-		<th>顧客ID</th>
-		<td><%= @user.id %>
-			<% if @user.user_status ==false %>
-			有効会員
-			<% else %>
-			退会済
-			<% end %>
-		</td>
-	</tr>
-	<tr>
-		<th>氏名</th>
-		<td><%= @user.first_name %><%= @user.last_name %></td>
-	</tr>
-	<tr>
-		<th>フリガナ</th>
-		<td><%= @user.first_name_kana %><%= @user.last_name_kana %></td>
-	</tr>
-	<tr>
-		<th>郵便番号</th>
-		<td><%= @user.postal_code %></td>
-	</tr>
-	<tr>
-		<th>住所</th>
-		<td><%= @user.address %></td>
-	</tr>
-	<tr>
-		<th>電話番号</th>
-		<td><%= @user.phone_number %></td>
-	</tr>
-	<tr>
-		<th>メールアドレス</th>
-		<td><%= @user.email %></td>
-	</tr>
-</table>
-<%= link_to "編集する", edit_admins_user_path(@user), class: "btn-sm btn-primary" %>
-<%= link_to "注文履歴一覧を見る", admins_orders_path(@order), class: "btn-sm btn-primary" %>
+<div>
+	<table>
+		<tr><td>　</td></tr>
+		<tr>
+			<th>顧客ID</th>
+			<td><%= @user.id %>&emsp;
+				<% if @user.user_status == false %>
+				<span class="btn-sm btn-primary">有効会員</span>
+				<% else %>
+				<span class="btn-sm btn-primary">退会済</span>
+				<% end %>
+			</td>
+		</tr>
+		<tr><td>　</td></tr>
+		<tr>
+			<th>氏名</th>
+			<td><%= @user.first_name %> <%= @user.last_name %></td>
+		</tr>
+		<tr><td>　</td></tr>
+		<tr>
+			<th>フリガナ</th>
+			<td><%= @user.first_name_kana %> <%= @user.last_name_kana %></td>
+		</tr>
+		<tr><td>　</td></tr>
+		<tr>
+			<th>郵便番号</th>
+			<td><%= @user.postal_code %></td>
+		</tr>
+		<tr><td>　</td></tr>
+		<tr>
+			<th>住所</th>
+			<td><%= @user.address %></td>
+		</tr>
+		<tr><td>　</td></tr>
+		<tr>
+			<th>電話番号</th>
+			<td><%= @user.phone_number %></td>
+		</tr>
+		<tr><td>　</td></tr>
+		<tr>
+			<th>メールアドレス　</th>
+			<td><%= @user.email %></td>
+		</tr>
+		<tr><td>　</td></tr>
+
+	</table>
+	<%= link_to "編集する", edit_admins_user_path(@user), class: "btn-sm btn-primary" %>
+	&emsp;
+	<%= link_to "注文履歴一覧を見る", admins_orders_path(@order), class: "btn-sm btn-primary" %>
+</div>
