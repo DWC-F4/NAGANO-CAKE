@@ -14,7 +14,8 @@ class Admins::OrdersController < ApplicationController
 	  @order = Order.find(params[:id])
 	  if @order.update(order_params)
 	  	flash[:notice] = "注文履歴詳細が変更されました。"
-	  else 
+	  	redirect_to admins_order_path(@order)
+	  else
 	  	render "show"
 	  	flash[:alert] = "変更内容を確認してください。"
 	  end
