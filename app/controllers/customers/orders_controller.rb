@@ -5,8 +5,10 @@ class Customers::OrdersController < ApplicationController
 	end
 
 	def show
-	    @order = Order.find(params[:id])
 	    @orders = current_user.orders
+	    @order = Order.find(params[:id])
+	    @order_details = @order.order_details
+	    @order_detail = Order.find(params[:id])
 	end
 
 	def new
