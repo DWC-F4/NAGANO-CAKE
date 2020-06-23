@@ -1,13 +1,13 @@
 <div class="col-md-3">
-    <table class="table table-bordered">
+    <table class="table table-bordered genre">
         <thead>
         	<tr>
-            	<th>ジャンル検索</th>
+            	<th class="genre-title">ジャンル検索</th>
           	</tr>
         </thead>
         <% genres.each do |genre| %>
         	<tbody>
-            	<td><%= link_to genre.name, customers_products_path(genre_id: genre.id) %></td>
+            	<td class="genre-text" ><%= link_to genre.name, customers_products_path(genre_id: genre.id) %></td>
             </tbody>
         <% end %>
     </table>
