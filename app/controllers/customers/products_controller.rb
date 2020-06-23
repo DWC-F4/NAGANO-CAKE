@@ -9,7 +9,7 @@ class Customers::ProductsController < ApplicationController
 			@products = Product.all
 			@title = "商品"
 		end
-		@genres = Genre.all
+		@genres = Genre.active
 	end
 
 	def show
