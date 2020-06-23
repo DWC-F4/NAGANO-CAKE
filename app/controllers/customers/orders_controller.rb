@@ -60,7 +60,7 @@ class Customers::OrdersController < ApplicationController
         current_user.cart_items.destroy_all
         redirect_to thanks_customers_orders_path
 	end
-	
+
 
 	private
 
