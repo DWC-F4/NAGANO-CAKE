@@ -1,31 +1,19 @@
 
-<div class="col-xs-4">
-	<div id="top_about"class="col text-center">
-		<p>ようこそ、Nagano Cakeへ！</p>
-		<p>このサイトは、ケーキ販売のECサイトになります。</p>
-		<p>会員でない方も商品の閲覧はできますが、</p>
-		<p>購入には会員登録が必要になります。</p>
+
+	<%= render 'layouts/images' %>
+
+	<%= render 'customers/products/genre_index', genres: @genres %>
+
+	<h3>オススメ商品</h3>
+	<div class="col-md-3 text-center">
+		<div><%= attachment_image_tag @reccomend, :image, :fill, 100, 100, format: 'jpeg',fallback: "no_image.jpg",size:'180x180' %></div>
+		<p class="product"><%= link_to @reccomend.name, customers_product_path(@reccomend) %></p>
+		<p class="product">¥<%= @reccomend.price %></p>
 	</div>
 
-	<div>
-		<%= render 'customers/products/genre_index', genres: @genres %>
-	</div>
+
+<div class="col-md-12 text-right">
+	<h4><%= link_to "もっと見る", customers_products_path %></h4>
 </div>
 
-<div class="col-xs-8">
-	<div>
-		<%= image_tag('shop_img1.jpg', class: 'shop_img') %>
-	</div>
-
-	<div>
-		<h2>オススメ商品</h2>
-		<%= attachment_image_tag @reccomend, :image, :fill, 100, 100, format: 'jpeg',fallback: "no_image.jpg",size:'100x100' %>
-		<%= link_to @reccomend.name, customers_product_path(@reccomend) %>
-		¥<%= @reccomend.price %>
-	</div>
-</div>
-
-
-<div class="col text-right">
-	<%= link_to "もっと見る", customers_products_path %>
-</div>
+	
