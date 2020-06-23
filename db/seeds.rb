@@ -9,7 +9,7 @@
       phone_number: "050-1111-1111",
       password: "password",
       password_confirmation: "password",
-    )
+      )
 
     Admin.create!(
     	email: "admin@admin.com",
@@ -41,3 +41,22 @@
         genre_id: n+1,
         )
     end
+
+    Order.create!(
+      user_id: "1",
+      payment: "1",
+      address_name: "梅木匠",
+      postage: "800",
+      postal_code: "123-4567",
+      address: "東京都渋谷区神南1丁目11-11",
+      price: "1000",
+      order_status: "1",
+      )
+
+    OrderDetail.create!(
+      order_id: "1",
+      product_id: "1",
+      price: "2000",
+      quantity: "2",
+      product_status: "1",
+      )
