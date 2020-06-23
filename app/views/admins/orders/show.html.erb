@@ -4,7 +4,7 @@
   	<thead>
   		<tr>
   			<th>購入者</th>
-  			<td><%= link_to @user.id do %>
+  			<td><%= link_to(@order.user) do %>
   				<%= @order.user.first_name %>&nbsp;
   				<%= @order.user.last_name %>
   				<% end %>
@@ -24,7 +24,7 @@
   		<tr>
   			<th>注文ステータス</th>
   			<%= form_for(@order, url:admins_order_path) do |f| %>
-  			<td><%= f.select :order_status, [入金待ち,入金確認,制作中,発送準備中,発送済み] %></td>
+  			<td><%= f.select :order_status, [1,2,3,4,5] %></td>
   			<td><%= f.submit '更新', class: "btn btn-primary" %></td>
   			<% end %>
   		</tr>
@@ -46,15 +46,17 @@
   			<td><%= order_detail.product.price %></td>
   			<td><%= order_detail.quantity %></td>
   			<td><%= order_detail.product.price * order_detail.quantity %></td>
-  			<td><%= order_detail.product_status %></td>
-  			<td><%= order_detail.submit '更新', class: "btn btn-primary" %></td>
+  			<td><%= form_for order_detail, url:admins_order_detail_path(order_detail) do |f| %>
+  				<%= f.select :product_status, [1,2,3,4] %>
+  			</td>
+  			<td><%= f.submit '更新', class: "btn btn-primary" %></td>
+  				<% end %>
   		</tr>
   			<% end %>
   	</tbody>
   </table>
 
   <div style="text-align:right;">
-  	<% @cart_item.each do |cart_item| %>
   	<table>
   	  <tr>
   		<th>商品合計</th>
