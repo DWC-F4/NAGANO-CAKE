@@ -3,8 +3,9 @@ class Customers::CartItemsController < ApplicationController
 		@cart_items = current_user.cart_items
 		@sum = 0
 		@cart_items.each do |cart|
-			@sum += cart.product.price * cart.quantity
+			@sum += ((cart.product.price*1.10) * cart.quantity).round
 		end
+		@sum = @sum.to_s(:delimited)
 	end
 
 	def create
