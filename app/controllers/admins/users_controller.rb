@@ -19,7 +19,7 @@ class Admins::UsersController < ApplicationController
 	       flash[:notice] = "会員情報を更新しました。"
 	       redirect_to admins_user_path(@user.id)
 	    else
-               flash[:alert] = "入力内容を確認して下さい。"    
+               flash[:alert] = "入力内容を確認して下さい。"
 	       render "edit"
 	    end
 	end
