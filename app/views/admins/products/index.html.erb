@@ -1,9 +1,13 @@
-<h1>商品一覧</h1>
+<h2>商品一覧</h2>
+
+<div class="col text-right">
+	<%= link_to "", new_admins_product_path, class:"btn btn-default glyphicon glyphicon-plus" %>
+</div>
 
 <div>
-	<table class=table>
+	<table class="table">
 		<thead>
-			<tr>
+			<tr class="active">
 				<th>商品ID</th>
 				<th>商品名</th>
 				<th>税抜価格</th>
@@ -15,11 +19,11 @@
 			<% @products.each do |product| %>
 			<tr>
 				<td><%= product.id %></td>
-				<td><%= product.name %></td>
-				<td><%= product.price %></td>
+				<td><%= link_to product.name, admins_product_path(product) %></td>
+				<td><%= product.price.to_s(:delimited) %></td>
 				<td><%= product.genre.name %></td>
 				<td>
-					<% if product.sales_status ==false %>
+					<% if product.sales_status == false %>
 						販売中
 					<% else %>
 						販売停止中

@@ -2,10 +2,10 @@
 
   <span class="form-group">
     <%= form_for(@genre, url: admins_genre_path) do |f| %>
-    <%= f.label :ジャンル名 %>
-    <%= f.text_area :name %>
-    <label><%= f.radio_button :genre_status, :true %>無効</label>
+    <%= f.label :ジャンル %>
+    <%= f.text_field :name %>
     <label><%= f.radio_button :genre_status, :false %>有効</label>
+    <label><%= f.radio_button :genre_status, :true %>無効</label>
     <%= f.submit '変更を保存する',class: "btn btn-primary" %>
     <% end %>
   </span>

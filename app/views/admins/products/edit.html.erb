@@ -1,31 +1,59 @@
 <h1>商品編集</h1>
 
-<div>
+<div class="form-horizontal" role="form">
 	<%= form_for [:admins, @product] do |f| %>
-	<div>
-		<%= f.label :image%>
-		<%= f.attachment_field :image %>
-	</div>
-	<div class="field row">
-		<%= f.label :商品名 %>
-		<%= f.text_field :name %>
-	</div>
-	<div class="field row">
-		<%= f.label :商品説明 %>
-		<%= f.text_area :introduction %>
-	</div>
-	<div class="field row">
-		<%= f.collection_select(:genre_id, @genres, :id, :name)%>
-	</div>
-	<div class="field row">
-		<%= f.label :税抜価格 %>
-		<%= f.text_field :price %>円
-	</div>
-	<div class="field row">
-		<%= f.select 'sales_status', options_for_select([
-			["-- 選択してください --",""],["販売中", false],["売切れ", true]
-		]) %>
-		<%= submit_tag "変更を保存" %>
-	</div>
-<% end %>
-</div>
+		<div>
+			<%= f.attachment_field :image %>
+		</div>
+
+		<div class="form-group">
+			<div class="col-xs-2">
+				<%= f.label :商品名 %>
+			</div>
+			<div class="col-xs-10">
+				<%= f.text_field :name %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-xs-2">
+				<%= f.label :商品説明 %>
+			</div>
+			<div class="col-xs-10">
+				<%= f.text_area :introduction %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-xs-2">
+				<%= f.label :ジャンル %>
+			</div>
+			<div class="col-xs-10">
+				<%= f.collection_select(:genre_id, @genres, :id, :name)%>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-xs-2">
+				<%= f.label :税抜価格 %>
+			</div>
+			<div class="col-xs-10">
+				<%= f.number_field :price %>円
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-xs-2">
+				<%= f.label :販売ステータス %>
+			</div>
+			<div class="col-xs-10">
+				<%= f.select 'sales_status', options_for_select([
+					["-- 選択してください --",""],["販売中", false],["売切れ", true]
+				]) %>
+			</div>
+		</div>
+
+		<div class="col text-right">
+				<%= f.submit "変更を保存" class: "btn btn-primary" %>
+		</div>
+	<% end %>
