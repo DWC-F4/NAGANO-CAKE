@@ -14,23 +14,17 @@
   			<tbody>
   				<% @orders.each do |order| %>
   			    <tr>
-  				    <td><%= link_to order.created_at, order %></td>
+  				    <td><%= link_to order.created_at.to_s(:datetime_jp), admins_order_path(order) %></td>
               <td><%= order.user.first_name %>
                   <%= order.user.last_name %>
               </td>
-              <td><%= order.order_detail.quantity %></td>
+              <td>
+                  <% order.order_details.each do |order_detail| %>
+                  <%= order_detail.quantity %>
+                  <% end %>
+              </td>
   				    <td>
-  					      <% if order.order_status ==1 %>
-  					  	   入金待ち
-  					      <% elsif order.order_status ==2 %>
-  					  	   入金確認
-                  <% elsif order.order_status ==3 %>
-                   制作中
-                  <% elsif order.order_status ==4 %>
-                   発送準備中
-                  <% elsif order.order_status ==5 %>
-                   発送済み
-  				        <% end %>
+  					      <%= order.order_status %>
   				   </td>
   			  </tr>
   			 <% end %>
