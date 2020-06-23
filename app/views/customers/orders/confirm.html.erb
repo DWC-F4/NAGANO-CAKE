@@ -26,7 +26,7 @@
 	      		</td>
 	      		<td>
 	        <!-- current_userカートから小計　-->
-	       			<%= (cart_item.product.price*1.1).round*cart_item.quantity %>
+	       			<%= ((cart_item.product.price*1.1).round*cart_item.quantity).to_s(:delimited) %>
 	        		<% total += (cart_item.product.price*1.1).round*cart_item.quantity %>
 	      		</td>
 	    	</tr>
@@ -43,13 +43,13 @@
     	<th>商品合計</th>
     <!-- order_product subtotalの合計 -->
     	<td>
-      		<%= total %>円
+      		<%= total.to_s(:delimited) %>円
     	</td>
   	</tr>
   	<tr>
     	<th>請求合計</th>
     <!-- 送料＋商品合計 -->
-    	<td><%= @order.postage + total %>円</td>
+    	<td><%= (@order.postage + total).to_s(:delimited) %>円</td>
     </tr>
 </table>
 
