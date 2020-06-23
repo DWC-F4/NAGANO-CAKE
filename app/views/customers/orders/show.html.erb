@@ -42,7 +42,7 @@
 			</tr>
 			<tr>
 				<th>ご請求額</th>
-				<td><%= @sum %></td>
+				<td><%= @order.price + @order.postage %></td>
 			</tr>
 		</tbody>
 	</table>
@@ -59,14 +59,14 @@
 			</tr>
 		</thead>
 		<tbody>
-			<!--% @orders.each do |order| %-->
+			<% @order.order_details.each do |order| %>
 			<tr>
-				<td><!--%= @product.name %--></td>
+				<td><%= order_detail.product.name %></td>
 				<td><%= @order.price %></td>
 				<td><!--%= order_datails.quantily %--></td>
 				<td><!--%= @orders.price %--></td>
 			</tr>
-			<!--% end %-->
+			<% end %>
 		</tbody>
 	</table>
 </div>

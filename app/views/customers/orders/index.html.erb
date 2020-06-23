@@ -19,7 +19,11 @@
 				<%= order.address %><br>
 				<%= order.address_name %>
 			</td>
-			<td><!--%= cart_item.product.name %--></td>
+			<td>
+				<% order.order_details.each do |order_detail| %>
+				<p><%= order_detail.product.name %></p>
+				<% end %>
+			</td>
 			<td><%= order.price %>円</td>
 			<td><%= order.order_status %></td>
 			<td><%= link_to "表示する", customers_order_path(order), class: "btn-sm btn-primary" %></td>
