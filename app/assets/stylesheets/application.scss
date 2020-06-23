@@ -18,9 +18,15 @@
 @import 'font-awesome';
 
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .name {
-	margin-top: 15px;
+	margin-top: 14px;
+	margin-right: 80px;
 }
 
 .sign-up {
@@ -33,23 +39,24 @@
 }
 
 .navbar {
-	height: 80px;
-	background-color: #FFFFFF;
+	height: 140px;
+	background-color: #FFFAF0;
 }
 
 .navbar-right {
-	font-size: 15px;
-	padding-top: 17px;
+	padding-top: 25px;
 	color: black;
+	font-size: 17px;
 }
 
 main {
-	margin-top: 100px;
+	margin-top: 60px;
+	height: 600px;
 }
 
 .navbar-left {
-	font-size: 25px;
-	margin-top: 20px;
+	font-size: 32px;
+	margin-top: 30px;
 
 }
 
@@ -57,14 +64,59 @@ main {
 	color: black;
 }
 
-/*customers/top*/
-#top_about {
-	display: inline-block;
-	color: white;
-	background-color: black;
+
+body {
+	background-image: url(/assets/paper.jpg);
 }
 
-.shop_img {
-	width: auto;
-	height: 400px;
+.genre {
+	background-color: #FFFAF0;
+	margin-top: 20px;
 }
+.genre-text {
+	height: 45px;
+	font-size: 18px;
+	padding-top: 10px;
+}
+.genre-title {
+	font-size: 18px;
+}
+
+.about {
+	margin-top: 70px;
+	font-size: 20px;
+	background-color: #FFFAF0;
+}
+
+footer {
+	width: 100%;
+	background-color: #FFFAF0;
+	height: 100px;
+}
+
+.product {
+	font-size: 15px;
+}
+
+.carousel-inner {
+	height: 600px;
+}
+
+.abc {
+	width: 100%;
+}
+
+img {
+	padding: auto;
+}
+
+header {
+	/*background-image: url(/assets/wood.jpg);*/
+}
+
+.footer-text {
+	margin-top: 40px;
+	background-color: #FFFAF0;
+}
+
+

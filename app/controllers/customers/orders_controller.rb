@@ -35,7 +35,7 @@ class Customers::OrdersController < ApplicationController
             @delivery_info.address = @order.address
             @delivery_info.address_name = @order.address_name
             if @delivery_info.save
-                render 'confirm'
+                render :confirm
             else
                 flash[:alert] = "入力内容を確認してください"
                 render :new
