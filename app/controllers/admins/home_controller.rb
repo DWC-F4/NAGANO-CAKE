@@ -4,7 +4,7 @@ class Admins::HomeController < ApplicationController
 	layout "admin"
 
 	def top
-		today = Date.today
-		@orders = Order.where(created_at: today)
+		range = Date.today.beginning_of_day..Date.today.end_of_day
+		@orders =  Order.where(created_at: range)
 	end
 end
