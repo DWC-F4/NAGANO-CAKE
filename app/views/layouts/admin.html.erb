@@ -11,7 +11,7 @@
 
   <body>
 
-  	<header class="navbar navbar-fixed-top navbar-inverse">
+  	<header class="navbar navbar-inverse">
     	<div class="container">
         	<nav>
           		<ul class="left nav navbar-nav navbar-left">
@@ -22,14 +22,14 @@
         	<nav>
 	          	<ul class="nav navbar-nav navbar-right">
 	            	<% if admin_signed_in? %>
-		              	<li><%= link_to '商品一覧', admins_products_path %></li>
-		              	<li><%= link_to '会員一覧', admins_users_path %></li>
-		              	<li><%= link_to '注文履歴一覧', admins_orders_path %></li>
-		              	<li><%= link_to 'ジャンル一覧', admins_genres_path %></li>
-		              	<li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+		              	<li><%= link_to '商品一覧', admins_products_path, :style=>"color:black;" %></li>
+		              	<li><%= link_to '会員一覧', admins_users_path, :style=>"color:black;" %></li>
+		              	<li><%= link_to '注文履歴一覧', admins_orders_path, :style=>"color:black;" %></li>
+		              	<li><%= link_to 'ジャンル一覧', admins_genres_path, :style=>"color:black;" %></li>
+		              	<li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, :style=>"color:black;" %></li>
 	            	<% else %>
 		             	<li><%= link_to '商品一覧', admins_products_path %></li>
-		             	<li><%= link_to 'ログイン', new_admin_session_path %></li>
+		             	<li><%= link_to 'ログイン', new_admin_session_path, :style=>"color:black;" %></li>
 	            	<% end %>
 	          	</ul>
        		 </nav>
@@ -52,7 +52,11 @@
       		<%= yield %>
       	</div>
       </div>
-    <main>
+    </main>
+
+    <footer>
+      <p class="text-center footer-text">製作: DWC team F4</p>
+    </footer>
 
   </body>
 </html>

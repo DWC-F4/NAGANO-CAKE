@@ -1,9 +1,13 @@
 class Customers::OrdersController < ApplicationController
 	before_action :authenticate_user!
 	def index
+		@orders = current_user.orders
 	end
 
 	def show
+	    @orders = current_user.orders
+	    @order = Order.find(params[:id])
+	    @order_details = @order.order_details
 	end
 
 	def new
@@ -60,7 +64,10 @@ class Customers::OrdersController < ApplicationController
         current_user.cart_items.destroy_all
         redirect_to thanks_customers_orders_path
 	end
+<<<<<<< HEAD
 
+=======
+>>>>>>> e0bdbcff85d305e2b0b224d76caa050eae0c9c4d
 
 	private
 
