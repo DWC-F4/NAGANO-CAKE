@@ -8,7 +8,6 @@ class Customers::OrdersController < ApplicationController
 	    @orders = current_user.orders
 	    @order = Order.find(params[:id])
 	    @order_details = @order.order_details
-	    @order_detail = Order.find(params[:id])
 	end
 
 	def new
