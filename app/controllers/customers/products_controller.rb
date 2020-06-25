@@ -10,6 +10,7 @@ class Customers::ProductsController < ApplicationController
 			@title = "商品"
 		end
 		@genres = Genre.active
+		@products = Product.page(params[:page]).per(8)
 	end
 
 	def show

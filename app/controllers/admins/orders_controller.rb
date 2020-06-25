@@ -2,8 +2,13 @@ class Admins::OrdersController < ApplicationController
 	layout "admin"
 
 	def index
-	  @users = User.all
-	  @orders = Order.all
+		if params[:id]
+			@orders = Order.find(params[:id])
+      @orders = Order.page(params[:page])
+		else
+	  	　@orders = Order.all
+      　@orders = Order.page(params[:page])
+	  	end
 	end
 
 	def show
