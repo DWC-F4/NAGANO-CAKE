@@ -8,41 +8,41 @@
 <div class="col-md-1 ">
   <%= link_to "編集する",edit_customers_user_path(@user),class: "btn btn-primary" %>
 </div>
-<div class="col-md-1 col-md-offset-5">
+<div class="col-md-1 ">
   <%= link_to "パスワードを変更する",edit_user_registration_path(@user),class: "btn btn-primary" %>
 </div>
 
 <div class="col-md-10 col-md-offset-1">
   <table class="table table-bordered">
     <tr>
-      <th>氏名</th>
+      <th class="active">氏名</th>
       <td><%= @user.first_name %>&nbsp;<%= @user.last_name %></td>
     </tr>
 
     <tr>
-			<th>カナ</th>
+			<th class="active">カナ</th>
   		<td><%= @user.first_name_kana %>&nbsp;<%= @user.last_name_kana %></td>
   	</tr>
 
 
   	<tr>
-    	<th>郵便番号</th>
+    	<th class="active">郵便番号</th>
     	<td><%= @user.postal_code %></td>
   	</tr>
 
   	<tr>
-    	<th>住所</th>
+    	<th class="active">住所</th>
     	<td><%= @user.address %></td>
     </tr>
 
    	<tr>
-    	<th>電話番号</th>
+    	<th class="active">電話番号</th>
     	<td><%= @user.phone_number %></td>
     </tr>
 
 
    	<tr>
-    	<th>メールアドレス</th>
+    	<th class="active">メールアドレス</th>
     	<td><%= @user.email %></td>
     </tr>
   </table>

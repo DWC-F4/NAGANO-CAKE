@@ -3,10 +3,11 @@
 
 <div class="col-md-9">
     <p>
-        <h4><%= @title %>一覧</h4>
-        <h5>(全<%= @products.count %>件)</h5>
+        <h2><%= @title %>一覧</h2>
+        <h4>(全<%= @products.count %>件)</h4>
     </p>
     <div class="flex_test-box">
+
        	<% @products.each do |product| %>
             <% if product.genre.genre_status == false%>
                 <div class="col-md-3">
@@ -21,3 +22,4 @@
         <% end %>
     </div>
 </div>
+<div class="text-center"><%= paginate @products %></div>
