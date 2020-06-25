@@ -2,8 +2,11 @@ class Admins::OrdersController < ApplicationController
 	layout "admin"
 
 	def index
-	  @users = User.all
-	  @orders = Order.all
+		if params[:id]
+			@orders = Order.find(params[:id])
+		else
+	  		@orders = Order.all
+	  	end
 	end
 
 	def show

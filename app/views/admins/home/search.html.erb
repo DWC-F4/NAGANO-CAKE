@@ -1,0 +1,31 @@
+<h2><%= @range == '1' ? "会員" : "商品" %>検索 検索ワード： "<%= @word %>"</h2>
+<% if @range == "1" %>
+  <table>
+    <thead>
+      <tr>
+        <th>ユーザー名</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.each do |user| %>
+      <tr>
+        <td><%= user.first_name + " " + user.last_name %></td>
+      </tr>
+      <% end %>
+    </tbody>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>商品名</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @product.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+      </tr>
+      <% end %>
+    </tbody>
+    <% end %>
+</table>
