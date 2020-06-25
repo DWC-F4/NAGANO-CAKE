@@ -1,5 +1,7 @@
 class Customers::OrdersController < ApplicationController
 	before_action :authenticate_user!
+    before_action :request_post?, only: [:confirm]
+
 	def index
 		@orders = current_user.orders
         @orders = Order.page(params[:page])
@@ -39,7 +41,6 @@ class Customers::OrdersController < ApplicationController
             if @delivery_info.save
                 render :confirm
             else
-                flash[:alert] = "入力内容を確認してください"
                 render :new
             end
         end
@@ -71,4 +72,9 @@ class Customers::OrdersController < ApplicationController
 	def order_params
         params.require(:order).permit(:payment, :postal_code, :address, :address_name, :user_id, :postage, :price, :order_status)
     end
+
+    def request_post?
+        redirect_to new_customers_order_path, notice: "もう一度最初から入力してください。" unless request.post?
+    end
+
 end

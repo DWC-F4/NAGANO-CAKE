@@ -3,7 +3,7 @@ class Customers::ProductsController < ApplicationController
 	def index
 		if params[:genre_id]
 			genre = Genre.find(params[:genre_id])
-			@products = genre.products.active
+			@products = genre.products
 			@title = genre.name
 		else
 			@products = Product.active
