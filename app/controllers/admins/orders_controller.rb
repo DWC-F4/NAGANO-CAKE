@@ -4,8 +4,10 @@ class Admins::OrdersController < ApplicationController
 	def index
 		if params[:id]
 			@orders = Order.find(params[:id])
+      @orders = Order.page(params[:page])
 		else
-	  		@orders = Order.all
+	  	　@orders = Order.all
+      　@orders = Order.page(params[:page])
 	  	end
 	end
 

@@ -19,8 +19,7 @@
 # The following keys must be escaped otherwise they will not be retrieved by
 # the default I18n backend:
 #
-# true, false, on, off, yes, no
-#
+# true, false, on, off, yes
 # Instead, surround them with single quotes.
 #
 # en:
@@ -31,3 +30,11 @@
 
 en:
   hello: "Hello world"
+  
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "&hellip;"
