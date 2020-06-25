@@ -29,17 +29,8 @@
 	margin-right: 80px;
 }
 
-.sign-up {
-	margin-bottom: 30px;
-	margin-top: 10px;
-}
-
-.sign-up-form {
-	margin: 10px 0;
-}
-
 .navbar {
-	height: 140px;
+	height: 110px;
 	background-color: #FFFAF0;
 }
 
@@ -52,6 +43,12 @@
 main {
 	margin-top: 60px;
 	height: 600px;
+	min-height: 100%;
+  height: auto;
+  /* フッターの高さ分だけ、ネガティブインデントを指定 */
+  margin: 0 auto -60px;
+  /* フッターの高さ分だけ、パディングを指定 */
+  padding: 0 0 60px;
 }
 
 .navbar-left {
@@ -65,12 +62,35 @@ main {
 }
 
 
-body {
+html,body {
+	background-image: url(/assets/paper.jpg);
+	height: 100%;
+
+}
+
+header {
 	background-image: url(/assets/paper.jpg);
 }
 
+main {
+	margin-top: 60px;
+	min-height: 100%;
+  	height: auto;
+  	/* フッターの高さ分だけ、ネガティブインデントを指定 */
+  	margin: 0 auto -60px;
+  	/* フッターの高さ分だけ、パディングを指定 */
+  	padding: 0 0 60px;
+}
+
+footer {
+	width: 100%;
+	background-color: #FFFFFF;
+	height: 60px;
+	padding: 40px;
+}
+
 .genre {
-	background-color: #FFFAF0;
+	background-color: #FFFFFF;
 	margin-top: 20px;
 }
 .genre-text {
@@ -82,41 +102,24 @@ body {
 	font-size: 18px;
 }
 
-.about {
-	margin-top: 70px;
-	font-size: 20px;
-	background-color: #FFFAF0;
-}
-
-footer {
-	width: 100%;
-	background-color: #FFFAF0;
-	height: 100px;
-}
-
 .product {
 	font-size: 15px;
 }
 
 .carousel-inner {
-	height: 600px;
-}
-
-.abc {
-	width: 100%;
+	height: 500px;
 }
 
 img {
 	padding: auto;
 }
 
-header {
-	/*background-image: url(/assets/wood.jpg);*/
+
+
+.table {
+	margin: 20px;
 }
 
-.footer-text {
-	margin-top: 40px;
-	background-color: #FFFAF0;
+.btn {
+	margin: 10px;
 }
-
-

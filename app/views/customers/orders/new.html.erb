@@ -1,56 +1,60 @@
-<h2>注文情報入力ページ</h2>
-<%= form_for(@order, url: confirm_customers_orders_path) do |f| %>
-	<div class="form-group">
-		<label><span class="glyphicon glyphicon-stop"></span>お支払い方法</label>
-			<p class="text">ご希望のお支払い方法を選択してください。</p>
-		<div class="radio">
-			<label><%= f.radio_button :payment, :クレジットカード, required: true %>クレジットカード</label>
-		</div>
-		<div class="radio">
-			<label><%= f.radio_button :payment, :銀行振込, required: true %>銀行振込</label>
-		</div>
-	</div>
-
-	<div class="form-group">
-		<label><span class="glyphicon glyphicon-stop"></span>お届け先</label>
-		<p class="text">ご希望のお届け先を選択してください。</p>
-		<!-- 自宅 -->
-		<div class="radio">
-			<label>
-				<%= radio_button_tag :address, "my_address", required: true %>ご自身の住所:
-			</label>
-			<span>〒<%= current_user.postal_code %> <%= current_user.address %></span>
-			<span><%= current_user.first_name %><%= current_user.last_name%></span>
-		</div>
-		<!-- 登録した配送先 -->
-		<div class="radio">
-			<label><%= radio_button_tag :address, "delivery_address", required: true %>登録済住所から選択</label>
-		</div>
-			<%= collection_select :delivery_info,:id, @addresses, :id, :to_address_name %>
-		<!-- 新しく配送先を設定-->
-		<div class="radio">
-			<label>
-				<%= radio_button_tag :address, "new_address", required: true %>
-				新しいお届け先
-			</label>
-		</div>
-		<p class="text">ご希望のお届け先を入力してください。</p>
-		<div class="form-group">
-			<label for="inputPostalCode">郵便番号</label>
-				<%= f.text_field :postal_code, class: "form-control" %>
-		</div>
-		<div class="form-group">
-			<label for="inputAddress">住所</label>
-				<%= f.text_field :address, class: "form-control" %>
-		</div>
-		<div class="form-group">
-			<label>宛名</label>
-			<div>
-				<%= f.text_field :address_name, class: "form-control col-xs-4" %>
+<div class="col-xs-12">
+	<div class="col-xs-5">
+		<h2>注文情報入力</h2>
+		<%= form_for(@order, url: confirm_customers_orders_path) do |f| %>
+			<div class="form-group">
+				<label><span class="glyphicon glyphicon-stop"></span>お支払い方法</label>
+					<p class="text">ご希望のお支払い方法を選択してください。</p>
+				<div class="radio">
+					<label><%= f.radio_button :payment, :クレジットカード, required: true %>クレジットカード</label>
+				</div>
+				<div class="radio">
+					<label><%= f.radio_button :payment, :銀行振込, required: true %>銀行振込</label>
+				</div>
 			</div>
-		</div>
+
+			<div class="form-group">
+				<label><span class="glyphicon glyphicon-stop"></span>お届け先</label>
+				<p class="text">ご希望のお届け先を選択してください。</p>
+				<!-- 自宅 -->
+				<div class="radio">
+					<label>
+						<%= radio_button_tag :address, "my_address", required: true %>ご自身の住所
+					</label>
+					<p>&emsp;<span>〒<%= current_user.postal_code %> <%= current_user.address %></span><br>
+						&emsp;<span><%= current_user.first_name %>&nbsp;<%= current_user.last_name%></span>
+					</p>
+				</div>
+					<!-- 登録した配送先 -->
+					<div class="radio">
+						<label><%= radio_button_tag :address, "delivery_address", required: true %>登録済住所から選択</label>
+					</div>
+						<%= collection_select :delivery_info,:id, @addresses, :id, :to_address_name,{include_blank: true},{class: "form-control"} %>
+					<!-- 新しく配送先を設定-->
+					<div class="radio">
+						<label>
+							<%= radio_button_tag :address, "new_address", required: true %>
+							新しいお届け先
+						</label>
+					</div>
+					<p class="text">ご希望のお届け先を入力してください。</p>
+					<div class="form-group">
+						<label for="inputPostalCode">郵便番号</label>
+							<%= f.text_field :postal_code, class: "form-control" %>
+					</div>
+					<div class="form-group">
+						<label for="inputAddress">住所</label>
+							<%= f.text_field :address, class: "form-control" %>
+					</div>
+					<div class="form-group">
+						<label>宛名</label>
+						<div>
+							<%= f.text_field :address_name, class: "form-control col-xs-4" %>
+						</div>
+					</div>
+			<div class="text-center">
+				<%= f.submit '確認画面へ進む', class: "btn btn-success" %>
+			</div>
+		<% end %>
 	</div>
-	<div class="text-center">
-		<%= f.submit '確認画面へ進む', class: "btn btn-success" %>
-	</div>
-<% end %>
+</div>
