@@ -4,6 +4,7 @@ class Customers::OrdersController < ApplicationController
 
 	def index
 		@orders = current_user.orders
+        @orders = Order.page(params[:page])
 	end
 
 	def show

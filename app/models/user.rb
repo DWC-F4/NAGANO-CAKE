@@ -12,7 +12,27 @@ class User < ApplicationRecord
     super && (self.user_status == false)
   end
 
+
   validates :last_name_kana, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
   validates :first_name_kana, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
+
+  class << self
+
+    def search(search,word)
+      if search == "forward_match"
+        @user = User.where("first_name LIKE? OR last_name LIKE?" , "#{word}%","#{word}%")
+      elsif search == "backward_match"
+        @user = User.where("first_name LIKE? OR last_name LIKE?", "%#{word}","%#{word}")
+      elsif search == "perfect_match"
+        @user = User.where("first_name LIKE? OR last_name LIKE?", "#{word}", "#{word}")
+      elsif search == "partial_match"
+        @user = User.where("first_name LIKE? OR last_name LIKE?" , "%#{word}%","%#{word}%")
+      else
+        @user = User.all
+      end
+    end
+
+  end
+
 
 end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
 # 管理者用トップページ
   	get 'admins' => 'admins/home#top'
+    get 'search' => 'admins/home#search'
 
 # 管理者用認証機能
   	devise_for :admins, controllers: {

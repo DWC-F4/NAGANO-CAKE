@@ -15,7 +15,9 @@
       <div class="container">
         <nav>
           <ul class="left nav navbar-nav navbar-left">
-            <%= link_to "NAGANO-CAKE", root_path, class: 'logo' %>
+            <%= link_to root_path, class: 'logo' do %>
+              <img src="/assets/logo.png">
+            <% end %>
           </ul>
         </nav>
 
@@ -57,6 +59,13 @@
     
     <footer>
       <p class="text-center footer-text">製作: DWC team F4</p>
+      <div class="icons">
+        <i class="fa fa-twitter" aria-hidden="true" ></i>
+        <i class="fa fa-instagram" aria-hidden="true"></i>
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+      </div>
+
+
     </footer>
 
   </body>

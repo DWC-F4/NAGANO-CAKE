@@ -3,7 +3,7 @@
 	 	<div class="col-md-3">
 	 		<h2>管理者画面</h2>
 			<h3>本日の注文件数<br>
-				<%= link_to @orders.count, admins_orders_path %>件
+				<%= link_to @orders.count, admins_orders_path(id: @orders.ids) %>件
 			</h3>
 	 	</div>
 	 	<div class="col-md-7">

@@ -2,7 +2,7 @@ class Admins::UsersController < ApplicationController
 	before_action :authenticate_admin!
 	layout "admin"
 	def index
-		@users = User.all
+		@users = User.page(params[:page])
 	end
 
 	def show

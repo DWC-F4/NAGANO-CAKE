@@ -18,6 +18,7 @@
 @import 'font-awesome';
 
 
+
 * {
   margin: 0;
   padding: 0;
@@ -52,15 +53,8 @@ main {
 }
 
 .navbar-left {
-	font-size: 32px;
-	margin-top: 30px;
-
+	margin-top: 20px;
 }
-
-.logo {
-	color: black;
-}
-
 
 html,body {
 	background-image: url(/assets/paper.jpg);
@@ -112,6 +106,15 @@ footer {
 
 img {
 	padding: auto;
+}
+
+.search-form {
+	text-align: right;
+	margin-right: 150px
+}
+
+.icons {
+	display: inline-block;
 }
 
 

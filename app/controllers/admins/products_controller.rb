@@ -6,7 +6,7 @@ class Admins::ProductsController < ApplicationController
 	layout "admin"
 
 	def index
-		@products = Product.all
+		@products = Product.page(params[:page])
 	end
 
 	def show
