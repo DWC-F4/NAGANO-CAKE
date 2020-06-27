@@ -26,3 +26,11 @@ ja:
         phone_number: 電話番号
         password: パスワード
         password_confirmation: パスワード確認用
+
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "&hellip;"
