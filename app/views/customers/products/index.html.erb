@@ -15,9 +15,9 @@
                  	<p>ジャンル：<%= product.genre.name %></p>
                  	<p><%= product.name %></p>
                  	<p><%= product.price %>円</p>
-                 	<%# end %>
+                 	<% end %>
                 </div> 
         <% end %>
     </div>
 </div>
-<div class="text-center"><%= paginate @products %></div>
+<div class="text-center"><!%= paginate @products %></div>

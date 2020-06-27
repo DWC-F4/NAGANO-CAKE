@@ -8,6 +8,7 @@ class Customers::ProductsController < ApplicationController
 
 			@title = genre.name
 		else
+			@products = Product.all
 			@products = Product.active
 			@products = @products.select {|active| active.genre.genre_status == false}
 			@products = Kaminari.paginate_array(@products).page(params[:page]).per(8)
@@ -16,7 +17,6 @@ class Customers::ProductsController < ApplicationController
 		end
 		@genres = Genre.active
 	end
-
 	def show
 		@product = Product.find(params[:id])
 		@genres = Genre.all

@@ -5,14 +5,14 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <div class="col-md-12 sign-in-form">
   <h7 class="col-md-3">メールアドレス</h7>
-  <div class="col-md-9">
+  <div class="col-md-5">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-md-10",placeholder: "メールアドレス" %>
   </div>
 </div>
 
 <div class="col-md-12 sign-in-form">
   <h7 class="col-md-3">パスワード</h7>
-  <div class="col-md-9">
+  <div class="col-md-4">
     <%= f.password_field :password, autocomplete: "current-password", class: "col-md-10",placeholder: "パスワード" %>
   </div>
 </div>
