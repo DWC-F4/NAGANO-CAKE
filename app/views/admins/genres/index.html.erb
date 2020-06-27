@@ -4,9 +4,11 @@
   	<div class="new_genre">
   	    <span class="genre_form">
   		  <%= form_for(@genre, url:admins_genres_path) do |f| %>
-  		    <%= render 'layouts/error', model: @genre %>
-          	<%= f.label :ジャンル %>
-  		    	<%= f.text_field :name %>
+
+  		    <%= render 'layouts/error', model: @genre %>    
+  		    	<%= f.label :ジャンル %>
+  		    	<%= f.text_field :name, required: true %>
+
             <label><%= f.radio_button :genre_status, :false %>有効</label>
   		    	<label><%= f.radio_button :genre_status, :true %>無効</label>
   		   		<%= f.submit '追加', class: "btn btn-primary" %>
