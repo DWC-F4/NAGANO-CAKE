@@ -29,9 +29,4 @@ class Product < ApplicationRecord
 	    end
 
 	 end
-
-	validates :name, presence: true
-	validates :price, presence: true
-	validates :introduction, presence: true, length: {maximum: 20}
-	validates :sales_status, inclusion: { in: [true, false] }
 end
