@@ -26,21 +26,21 @@ class Customers::OrdersController < ApplicationController
             @order.postal_code = current_user.postal_code
             @order.address = current_user.address
             @order.address_name = current_user.first_name + current_user.last_name
-            flash[:alert] = "入力内容を確認してください"
         elsif params[:address] == "delivery_address"
             @delivery_info = DeliveryInfo.find(params[:delivery_info][:id])
             @order.postal_code = @delivery_info.postal_code
             @order.address = @delivery_info.address
             @order.address_name = @delivery_info.address_name
-            flash[:alert] = "入力内容を確認してください"
         elsif params[:address] == "new_address"
             @delivery_info = DeliveryInfo.new(user_id: current_user.id)
             @delivery_info.postal_code = @order.postal_code
             @delivery_info.address = @order.address
             @delivery_info.address_name = @order.address_name
             if @delivery_info.save
+                flash[:alert] = nil
                 render :confirm
             else
+                flash[:alert] = "入力内容を確認してください"
                 render :new
             end
         end

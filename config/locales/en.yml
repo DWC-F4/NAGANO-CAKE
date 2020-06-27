@@ -30,7 +30,7 @@
 
 en:
   hello: "Hello world"
-  
+
   views:
     pagination:
       first: "&laquo; 最初"
