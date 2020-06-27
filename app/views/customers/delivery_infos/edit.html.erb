@@ -2,6 +2,7 @@
 
   	<!-- 編集フォーム -->
   	<%= form_for(@delivery_info, url: customers_delivery_info_path) do |f| %>
+  		<%= render 'layouts/error', model: @delivery_info %>
     	<table class="table table-bordered">
       		<tr>
 	   	 		<td>郵便番号(ハイフンなし)</td>

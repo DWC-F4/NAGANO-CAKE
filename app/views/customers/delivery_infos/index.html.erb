@@ -1,17 +1,18 @@
 <h5>配送先登録/一覧</h5>
     <%= form_for(@delivery_info, url: customers_delivery_infos_path) do |f| %>
+    <%= render 'layouts/error', model: @delivery_info %>
         <table class="table table-bordered">
 	    	<tr>
 		    	<th>郵便番号(ハイフンなし)</th>
-		    	<td><%= f.text_field :postal_code, required: true %></td>
+		    	<td><%= f.text_field :postal_code %></td>
 	      	</tr>
 	      	<tr>
 		    	<th>住所</th>
-		    	<td><%= f.text_field :address, style: "width: 80%;", required: true %></td>
+		    	<td><%= f.text_field :address, style: "width: 80%;" %></td>
 	      	</tr>
 	      	<tr>
 	  	    	<th>宛名</th>
-	  	    	<td><%= f.text_field :address_name, required: true %></td>
+	  	    	<td><%= f.text_field :address_name %></td>
 	      	</tr>
 	    </table>
 	    <%= f.submit "登録する", class: 'btn btn-primary btn-md' %>
