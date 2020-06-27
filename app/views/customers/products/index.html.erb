@@ -7,6 +7,7 @@
         <h4>(全<%= @products.count %>件)</h4>
     </p>
     <div class="flex_test-box">
+
         <% @products.each do |product| %>
         <div class="col-md-3">
           <%= link_to customers_product_path(product.id) do %>
@@ -19,4 +20,4 @@
       <% end %>
   </div>
 </div>
-<div class="text-center"><%= paginate @products %></div>
+<div class="text-center"><!%= paginate @products %></div>

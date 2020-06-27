@@ -65,10 +65,6 @@ class Customers::OrdersController < ApplicationController
         current_user.cart_items.destroy_all
         redirect_to thanks_customers_orders_path
 	end
-<<<<<<< HEAD
-
-=======
->>>>>>> e0bdbcff85d305e2b0b224d76caa050eae0c9c4d
 
 	private
 
