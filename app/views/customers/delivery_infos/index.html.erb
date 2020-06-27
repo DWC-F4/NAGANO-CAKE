@@ -1,5 +1,6 @@
 <h5>配送先登録/一覧</h5>
     <%= form_for(@delivery_info, url: customers_delivery_infos_path) do |f| %>
+    <%= render 'layouts/error', model: @delivery_info %>
         <table class="table table-bordered">
 	    	<tr>
 		    	<th>郵便番号(ハイフンなし)</th>
