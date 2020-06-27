@@ -3,15 +3,15 @@
         <table class="table table-bordered">
 	    	<tr>
 		    	<th>郵便番号(ハイフンなし)</th>
-		    	<td><%= f.text_field :postal_code %></td>
+		    	<td><%= f.text_field :postal_code, required: true %></td>
 	      	</tr>
 	      	<tr>
 		    	<th>住所</th>
-		    	<td><%= f.text_field :address, style: "width: 80%;" %></td>
+		    	<td><%= f.text_field :address, style: "width: 80%;", required: true %></td>
 	      	</tr>
 	      	<tr>
 	  	    	<th>宛名</th>
-	  	    	<td><%= f.text_field :address_name %></td>
+	  	    	<td><%= f.text_field :address_name, required: true %></td>
 	      	</tr>
 	    </table>
 	    <%= f.submit "登録する", class: 'btn btn-primary btn-md' %>

@@ -4,7 +4,8 @@
   	<div class="new_genre">
   	    <span class="genre_form">
   		  <%= form_for(@genre, url:admins_genres_path) do |f| %>
-  		    	<%= f.label :ジャンル %>
+  		    <%= render 'layouts/error', model: @genre %>
+          	<%= f.label :ジャンル %>
   		    	<%= f.text_field :name %>
             <label><%= f.radio_button :genre_status, :false %>有効</label>
   		    	<label><%= f.radio_button :genre_status, :true %>無効</label>

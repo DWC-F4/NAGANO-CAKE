@@ -71,3 +71,5 @@ gem "kaminari",'~> 1.2.1'
 gem "font-awesome-rails"
 gem 'pry-rails'
 
+# エラーメッセージの日本語化
+gem 'rails-i18n'
