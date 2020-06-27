@@ -18,6 +18,7 @@ class Admins::ProductsController < ApplicationController
 	end
 
 	def create
+		@genres = Genre.all
 		@product = Product.new(product_params)
 		if @product.save
 			flash[:notice] = "商品情報を登録しました。"
@@ -32,10 +33,12 @@ class Admins::ProductsController < ApplicationController
 	end
 
 	def update
+		@genres = Genre.all
 		if @product.update(product_params)
 			flash[:notice] = "商品情報を更新しました。"
 			redirect_to admins_product_path(@product.id)
 		else
+			flash[:alert] = "内容を確認してください"
 			render "edit"
 		end
 	end

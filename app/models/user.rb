@@ -8,6 +8,16 @@ class User < ApplicationRecord
   has_many :orders
   has_many :cart_items
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :first_name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。' }
+  validates :last_name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。' }
+  validates :postal_code, format: { with: /\A\d{7}\z/, message: "ハイフン無しで入力してください。"}
+  validates :address, presence: true
+  validates :phone_numbaer, format: { with: /\A\d{11}\z/, message:"ハイフン無しで入力してください。"}
+  validates :email, format: { with:  /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+
+
   def active_for_authentication?
     super && (self.user_status == false)
   end
