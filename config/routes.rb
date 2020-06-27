@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   		sessions: 'users/sessions',
   		passwords: 'users/passwords'
   	}
-
+get 'customers/orders/confirm' => 'customers/orders#confirm'
 # 顧客表示部分
   	namespace :customers do
   		resources :users, only: [:show, :edit, :update] do
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   		end
 
   		resources :orders, only: [:index, :show, :new, :create] do
-  			collection do
+        collection do
   				get :thanks
   				post :confirm
   			end

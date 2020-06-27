@@ -5,6 +5,11 @@ class Product < ApplicationRecord
 	has_many :order_details
 	belongs_to :genre
 
+	validates :name, presence: true, length: { maximum: 30 }
+	validates :introduction, presence: true, length: {maximum: 200}
+	validates :price, presence: true
+	validates :sales_status, inclusion: { in: [true, false] }
+
 	scope :active, -> {where(sales_status: false)}
 
 	class << self
@@ -24,5 +29,4 @@ class Product < ApplicationRecord
 	    end
 
 	 end
-
 end

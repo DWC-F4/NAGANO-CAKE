@@ -2,12 +2,11 @@ class Admins::OrdersController < ApplicationController
 	layout "admin"
 	def index
 		if params[:id]
-			@orders = Order.find(params[:id])
-			@orders = Order.page(params[:page])
+			@orders = Kaminari.paginate_array(Order.find(params[:id]))
+			@orders = @orders.page(params[:page])
 		else
-			@orders = Order.all
-            @orders = Order.page(params[:page])
-		end
+	      	@orders = Order.page(params[:page])
+	  	end
 	end
 
 	def show

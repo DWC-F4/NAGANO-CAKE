@@ -15,7 +15,9 @@
       <div class="container">
         <nav>
           <ul class="left nav navbar-nav navbar-left">
-            <%= link_to "NAGANO-CAKE", root_path, class: 'logo' %>
+            <%= link_to root_path, class: 'logo' do %>
+              <img src="/assets/logo.png">
+            <% end %>
           </ul>
         </nav>
 
@@ -43,7 +45,7 @@
           <%= flash[:notice] %>
         </div>
       <% elsif flash[:alert] %>
-        <div class="alert alert-warning text-center" role="alert">
+        <div class="alert alert-danger text-center" role="alert">
           <%= flash[:alert] %>
         </div>
       <% end %>

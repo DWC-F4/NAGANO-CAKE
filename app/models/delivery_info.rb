@@ -2,7 +2,7 @@ class DeliveryInfo < ApplicationRecord
 
 	belongs_to :user
 
-	validates :postal_code, presence: true
+	validates :postal_code, format: { with: /\A\d{7}\z/, message: "ハイフン無しで入力してください。"}
 	validates :address, presence: true
 	validates :address_name, presence: true
 

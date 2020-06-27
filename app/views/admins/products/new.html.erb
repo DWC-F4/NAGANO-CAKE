@@ -2,7 +2,7 @@
 
 <div class="form-horizontal" role="form">
 	<%= form_for [:admins, @product] do |f| %>
-
+	<%= render 'layouts/error', model: @product %>
 	<div class="col-xs-4">
 			<%= f.attachment_field :image %>
 	</div>
