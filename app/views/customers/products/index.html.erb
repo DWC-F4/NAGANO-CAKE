@@ -14,7 +14,7 @@
                  		<%= attachment_image_tag product, :image, class: "pull-left profile-img", fallback: "no_image.jpg", size: '200x200' %>
                  	<p>ジャンル：<%= product.genre.name %></p>
                  	<p><%= product.name %></p>
-                 	<p><%= product.price %>円</p>
+                 	<p><%= product.price.to_s(:delimited) %>円</p>
                  	<% end %>
                 </div>
         <% end %>
