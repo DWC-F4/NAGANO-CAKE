@@ -2,7 +2,7 @@ class Customers::HomeController < ApplicationController
 
 	def top
 		@products = Product.all
-		@reccomend = @products.sample
+		@reccomends = @products.sample(3)
 		@genres = Genre.active
 	end
 

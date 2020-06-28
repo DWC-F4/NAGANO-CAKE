@@ -4,7 +4,7 @@ ja:
       genre:
         name: ジャンル名
 
-      products:
+      product:
         price: 価格
         name: 商品名
         introduction: 商品説明

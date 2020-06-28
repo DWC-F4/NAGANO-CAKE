@@ -26,13 +26,13 @@ class User < ApplicationRecord
 
     def search(search,word)
       if search == "forward_match"
-        @user = User.where("first_name LIKE? OR last_name LIKE?" , "#{word}%","#{word}%")
+        @user = User.where("first_name LIKE? OR last_name LIKE? OR first_name_kana LIKE? OR last_name_kana LIKE?" , "#{word}%","#{word}%","#{word}%","#{word}%")
       elsif search == "backward_match"
-        @user = User.where("first_name LIKE? OR last_name LIKE?", "%#{word}","%#{word}")
+        @user = User.where("first_name LIKE? OR last_name LIKE? OR first_name_kana LIKE? OR last_name_kana LIKE?", "%#{word}","%#{word}","%#{word}","%#{word}")
       elsif search == "perfect_match"
-        @user = User.where("first_name LIKE? OR last_name LIKE?", "#{word}", "#{word}")
+        @user = User.where("first_name LIKE? OR last_name LIKE? OR first_name_kana LIKE? OR last_name_kana LIKE?", "#{word}", "#{word}", "#{word}", "#{word}")
       elsif search == "partial_match"
-        @user = User.where("first_name LIKE? OR last_name LIKE?" , "%#{word}%","%#{word}%")
+        @user = User.where("first_name LIKE? OR last_name LIKE? OR first_name_kana LIKE? OR last_name_kana LIKE?" , "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%")
       else
         @user = User.all
       end
