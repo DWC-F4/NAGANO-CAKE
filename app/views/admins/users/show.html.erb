@@ -47,5 +47,5 @@
 	</table>
 	<%= link_to "編集する", edit_admins_user_path(@user), class: "btn-sm btn-primary" %>
 	&emsp;
-	<%= link_to "注文履歴一覧を見る", admins_orders_path(@order), class: "btn-sm btn-primary" %>
+	<%= link_to "注文履歴一覧を見る", admins_orders_path(user_id: @user), class: "btn-sm btn-primary" %>
 </div>
