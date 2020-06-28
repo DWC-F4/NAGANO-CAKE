@@ -4,6 +4,9 @@
 	<%= form_for [:admins, @product] do |f| %>
 	<%= render 'layouts/error', model: @product %>
 	<div class="col-xs-4">
+		<div class="product-image">
+        <%= attachment_image_tag @product, :image, class: "img-square", fallback: "no_image.jpg", size:"300x300" %>
+      </div><br>
 			<%= f.attachment_field :image %>
 	</div>
 

@@ -2,10 +2,16 @@
 
 <div class="form-horizontal" role="form">
 	<%= form_for [:admins, @product] do |f| %>
-		<div>
-			<%= f.attachment_field :image %>
-		</div>
 
+		<%= render 'layouts/error', model: @product %>
+	<div class="col-xs-4">
+		<div class="product-image">
+			<%= attachment_image_tag @product, :image, class: "img-square", fallback: "no_image.jpg", size:"300x300" %>
+		</div><br>
+			<%= f.attachment_field :image %>
+	</div>
+
+	<div class="col-xs-8">
 		<div class="form-group">
 			<div class="col-xs-2">
 				<%= f.label :商品名 %>
@@ -47,11 +53,12 @@
 				<%= f.label :販売ステータス %>
 			</div>
 			<div class="col-xs-10">
-				<%= f.select 'sales_status', options_for_select([
+				<%= f.select :sales_status, options_for_select([
 					["-- 選択してください --",""],["販売中", false],["売切れ", true]
 				]) %>
 			</div>
 		</div>
+	</div>
 
 		<div class="col text-right">
 				<%= f.submit "変更を保存", class: "btn btn-primary" %>

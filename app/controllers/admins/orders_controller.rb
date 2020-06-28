@@ -4,6 +4,10 @@ class Admins::OrdersController < ApplicationController
 		if params[:id]
 			@orders = Kaminari.paginate_array(Order.find(params[:id]))
 			@orders = @orders.page(params[:page])
+		elsif params[:user_id]
+			user = User.find(params[:user_id])
+			@orders = Kaminari.paginate_array(user.orders)
+			@orders = @orders.page(params[:page])
 		else
 	      	@orders = Order.page(params[:page])
 	  	end
