@@ -4,25 +4,25 @@
 	<%= attachment_image_tag @product, :image, :fill, 300, 200, format: 'jpeg',fallback: "no_image.jpg",size:'300x200' %>
 </div>
 
-<div class="col-xs-8">
-	<table>
+<div class="col-xs-5">
+	<table class="table">
 		<tbody>
 			<tr>
-				<td>商品名</td><td><%= @product.name %></td>
+				<td class="active" style="width: 35%;">商品名</td><td><%= @product.name %></td>
 			</tr>
 			<tr>
-				<td>商品説明</td><td><%= @product.introduction %></td>
+				<td class="active" style="width: 35%;">商品説明</td><td><%= @product.introduction %></td>
 			</tr>
 			<tr>
-				<td>ジャンル</td><td><%= @product.genre.name %></td>
+				<td class="active" style="width: 35%;">ジャンル</td><td><%= @product.genre.name %></td>
 			</tr>
 			<tr>
-				<td>税込価格 (税抜価格)</td><td><%= (@product.price*1.10).round.to_s(:delimited)%>
+				<td class="active">税込価格 (税抜価格)</td><td><%= (@product.price*1.10).round.to_s(:delimited)%>
 					<%= "(#{@product.price.to_s(:delimited)})" %>  円
 				</td>
 			</tr>
 			<tr>
-				<td>販売ステータス</td>
+				<td class="active" style="width: 35%;">販売ステータス</td>
 				<td>
 					<% if @product.sales_status ==false %>
 						販売中
@@ -35,7 +35,7 @@
 	</table>
 
 
-	<div class="col text-right">
+	<div class="col text-center">
 		<%= link_to "編集する",edit_admins_product_path(@product), class:" btn btn-primary" %>
 	</div>
 </div>
