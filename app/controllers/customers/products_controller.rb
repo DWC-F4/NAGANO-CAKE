@@ -3,7 +3,7 @@ class Customers::ProductsController < ApplicationController
 	def index
 		if params[:genre_id]
 			genre = Genre.find(params[:genre_id])
-			@products = Kaminari.paginate_array(genre.products)
+			@products = Kaminari.paginate_array(genre.products.active)
 			@products = @products.page(params[:page]).per(8)
 
 			@title = genre.name

@@ -1,7 +1,7 @@
 <h5>配送先登録/一覧</h5>
     <%= form_for(@delivery_info, url: customers_delivery_infos_path) do |f| %>
     <%= render 'layouts/error', model: @delivery_info %>
-        <table class="table table-bordered">
+        <table class="table">
 	    	<tr>
 		    	<th>郵便番号(ハイフンなし)</th>
 		    	<td><%= f.text_field :postal_code %></td>
@@ -22,10 +22,10 @@
 <table class="table table-bordered" style="margin-top: 20px;">
   	<thead>
     	<tr>
-	     	<th>郵便番号</th>
-			<th>住所</th>
-			<th>宛名</th>
-			<th></th>
+	     	<th class="active">郵便番号</th>
+			<th class="active">住所</th>
+			<th class="active">宛名</th>
+			<th class="active"></th>
 	  	</tr>
     </thead>
 	<% @delivery_infos.each do |delivery_info| %>
