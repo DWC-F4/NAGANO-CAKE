@@ -4,12 +4,14 @@
 
 	<%= render 'customers/products/genre_index', genres: @genres %>
 
-	<h3>オススメ商品</h3>
-	<div class="col-md-3 text-center">
-		<div><%= attachment_image_tag @reccomend, :image, :fill, 100, 100, format: 'jpeg',fallback: "no_image.jpg",size:'180x180' %></div>
-		<p class="product"><%= link_to @reccomend.name, customers_product_path(@reccomend) %></p>
-		<p class="product">¥<%= @reccomend.price %></p>
-	</div>
+	<h3 class="col text-center">オススメ商品</h3>
+	<% @reccomends.each do |reccomend| %>
+		<div class="col-md-3 text-center">
+			<div><%= attachment_image_tag reccomend, :image, :fill, 100, 100, format: 'jpeg',fallback: "no_image.jpg",size:'180x180' %></div>
+			<p class="product"><%= link_to reccomend.name, customers_product_path(reccomend) %></p>
+			<p class="product">¥<%= reccomend.price.to_s(:delimited) %></p>
+		</div>
+	<% end %>
 
 
 <div class="col-md-12 text-right">
